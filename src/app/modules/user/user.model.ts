@@ -20,7 +20,8 @@ const userSchema = new Schema<TUser>({
     type: String,
     required: [true, 'role is required'],
     enum: ['user', 'admin'],
+    default: 'user',
   },
 });
 
-export const User = model<TUser>('User', userSchema);
+export const User = model<TUser>('user', userSchema);

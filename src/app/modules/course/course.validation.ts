@@ -32,6 +32,7 @@ const createCourseValidationSchema = z.object({
     language: z.string(),
     provider: z.string(),
     details: CourseDetailsValidationSchema,
+    createdBy: z.string(),
   }),
 });
 const updateCourseDetailsValidationSchema = z.object({
