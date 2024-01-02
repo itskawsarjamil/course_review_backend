@@ -13,10 +13,10 @@ const reviewschema = new Schema<TReview>({
     max: [5, 'Rating cannot be more than 5'],
   },
   review: String,
-  createdBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'user',
-  },
+  // createdBy: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'user',
+  // },
 });
 
 export const Review = model<TReview>('review', reviewschema);

@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 
 app.get('/', (req: Request, res: Response) => {
-  res.send(`WELCOME TO PART 3 OF Next LEVEL`);
+  res.send(`WELCOME TO PART 4 OF Next LEVEL`);
 });
 
 app.use('/api', router);

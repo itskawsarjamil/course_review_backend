@@ -7,10 +7,10 @@ const CategorySchema = new Schema<TCategory>({
     unique: true,
     required: [true, 'Category Name is Required'],
   },
-  createdBy: {
-    type: Schema.Types.ObjectId,
-    ref: 'user',
-  },
+  // createdBy: {
+  //   type: Schema.Types.ObjectId,
+  //   ref: 'user',
+  // },
 });
 
 export const Category = model<TCategory>('category', CategorySchema);

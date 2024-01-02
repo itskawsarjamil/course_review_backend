@@ -22,7 +22,7 @@ const updateReviewValidationSchema = z.object({
       .max(5, { message: 'Rating cannot be more than 5' })
       .optional(),
     review: z.string().optional(),
-    createdBy: z.string().optional(),
+    // createdBy: z.string().optional(),
   }),
 });
 

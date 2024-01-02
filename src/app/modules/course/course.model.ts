@@ -77,10 +77,10 @@ const courseSchema = new Schema<TCourse>(
       type: detailsSchema,
       required: [true, 'Details is required'],
     },
-    createdBy: {
-      type: Schema.Types.ObjectId,
-      ref: 'user',
-    },
+    // createdBy: {
+    //   type: Schema.Types.ObjectId,
+    //   ref: 'user',
+    // },
   },
   { timestamps: true },
 );

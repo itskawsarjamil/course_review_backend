@@ -2,6 +2,7 @@ import { TCategory } from './category.interface';
 import { Category } from './category.model';
 
 const createCategoryIntoDB = async (payload: TCategory) => {
+  // console.log();
   const result1 = await Category.create(payload);
   const result = await Category.findOne({ _id: result1._id }).select('-__v');
   return result;
