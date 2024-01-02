@@ -18,6 +18,23 @@ const loginUser = catchAsync(async (req, res) => {
   });
 });
 
+const changePassword = catchAsync(async (req, res) => {
+  const PasswordData = req.body;
+
+  const result = await authServices.changePassword(req.user, PasswordData);
+  const message =
+    result === null
+      ? 'Password change failed. Ensure the new password is unique and not among the last 2 used'
+      : 'Password changed successfully';
+  sendResponse(res, {
+    statusCode: result === null ? httpStatus.BAD_REQUEST : httpStatus.OK,
+    success: result === null ? false : true,
+    message,
+    data: result,
+  });
+});
+
 export const authController = {
   loginUser,
+  changePassword,
 };

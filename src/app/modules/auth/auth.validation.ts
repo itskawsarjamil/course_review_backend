@@ -9,10 +9,10 @@ const loginValidationSchema = z.object({
 
 const changePasswordValidationSchema = z.object({
   body: z.object({
-    oldPassword: z.string({
-      required_error: 'Old password is required',
+    currentPassword: z.string({
+      required_error: 'current password is required',
     }),
-    newPassword: z.string({ required_error: 'Password is required' }),
+    newPassword: z.string({ required_error: 'new Password is required' }),
   }),
 });
 

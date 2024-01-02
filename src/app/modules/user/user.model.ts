@@ -1,7 +1,17 @@
 import { Schema, model } from 'mongoose';
-import { TUser, UserModel } from './user.interface';
+import { TUser, TpasswordStore, UserModel } from './user.interface';
 import bcrypt from 'bcrypt';
 import config from '../../config';
+import { ObjectId } from 'mongodb';
+
+const passwordStoreSchema = new Schema<TpasswordStore>({
+  password: {
+    type: String,
+  },
+  passwordChangedAt: {
+    type: Date,
+  },
+});
 
 const userSchema = new Schema<TUser, UserModel>(
   {
@@ -19,11 +29,19 @@ const userSchema = new Schema<TUser, UserModel>(
       type: String,
       required: [true, 'password is required'],
     },
+    passwordChangedAt: {
+      type: Date,
+      default: new Date(),
+    },
     role: {
       type: String,
       required: [true, 'role is required'],
       enum: ['user', 'admin'],
       default: 'user',
+    },
+    arrayofMetaDataOfPrevPass: {
+      type: [passwordStoreSchema],
+      default: [],
     },
   },
   { timestamps: true },
@@ -49,7 +67,7 @@ userSchema.post('save', function (doc, next) {
 });
 
 userSchema.statics.isUserExistsByCustomId = async function (id: string) {
-  return await User.findOne({ id }).select('+password');
+  return await User.findOne({ _id: new ObjectId(id) });
 };
 
 userSchema.statics.isPasswordMatched = async function (

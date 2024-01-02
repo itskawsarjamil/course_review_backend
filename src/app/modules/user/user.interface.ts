@@ -1,18 +1,22 @@
+/* eslint-disable no-unused-vars */
 import { Model } from 'mongoose';
 import { USER_ROLE } from './user.constant';
 
-export type passStore = {
+export type TpasswordStore = {
   password: string;
   passwordChangedAt: Date;
 };
 
-export type TUser = {
+export interface TUser extends Document {
   username: string;
   email: string;
   password: string;
+  passwordChangedAt: Date;
   role: 'user' | 'admin';
-  passwordHolder?: [passStore];
-};
+  arrayofMetaDataOfPrevPass: TpasswordStore[];
+  createdAt: Date;
+  updatedAt: Date;
+}
 
 export interface UserModel extends Model<TUser> {
   //instance methods for checking if the user exist
