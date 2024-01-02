@@ -4,5 +4,6 @@ declare namespace NodeJS {
     DATABASE_URL_LOCAL: string;
     DATABASE_URL: string;
     NODE_ENV: string;
+    BCRYPT_SALT_ROUND: number;
   };
 }

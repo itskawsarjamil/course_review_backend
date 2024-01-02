@@ -6,12 +6,26 @@ import { userServices } from './user.service';
 const createUser = catchAsync(async (req, res) => {
   const data = req.body;
   const result = await userServices.createUserIntoDB(data);
+
   sendResponse(res, {
-    data: result,
-    statusCode: httpStatus.OK,
     success: true,
-    message: 'User create successfully',
+    statusCode: httpStatus.CREATED,
+    message: 'User registered successfully',
+    data: result,
   });
 });
 
-export const userController = { createUser };
+const getAllUser = catchAsync(async (req, res) => {
+  const result = await userServices.getAllUserFromDB();
+  sendResponse(res, {
+    success: true,
+    statusCode: httpStatus.OK,
+    message: 'Users fetched successfully',
+    data: result,
+  });
+});
+
+export const userController = {
+  createUser,
+  getAllUser,
+};

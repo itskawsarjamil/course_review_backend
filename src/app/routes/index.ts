@@ -3,6 +3,7 @@ import { CourseRoutes, RoutesOfCourses } from '../modules/course/course.routes';
 import { CategoryRoutes } from '../modules/category/category.routes';
 import { ReviewRoutes } from '../modules/review/review.routes';
 import { AuthRoutes } from '../modules/auth/auth.routes';
+import { UserRoutes } from '../modules/user/user.routes';
 
 const router = express.Router();
 
@@ -32,6 +33,10 @@ const allRouter = [
   {
     path: '/auth',
     route: AuthRoutes,
+  },
+  {
+    path: '/user',
+    route: UserRoutes,
   },
 ];
 

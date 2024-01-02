@@ -2,10 +2,10 @@ import { z } from 'zod';
 
 const createUserValidationSchema = z.object({
   body: z.object({
-    username: z.string().default('user'),
+    username: z.string(),
     email: z.string().email('Invalid email format'),
-    password: z.string().min(8, 'Password must be at least 8 characters'),
-    role: z.enum(['user', 'admin']),
+    password: z.string(),
+    role: z.enum(['user', 'admin']).default('user'),
   }),
 });
 
