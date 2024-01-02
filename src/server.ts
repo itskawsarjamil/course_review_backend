@@ -6,7 +6,7 @@ import { Server } from 'http';
 let server: Server;
 async function main() {
   try {
-    await mongoose.connect(`${config.database_url_local}`);
+    await mongoose.connect(`${config.database_url}`);
     server = app.listen(config.port, () => {
       console.log(`Assignment 4 is listening on port ${config.port}`);
     });
