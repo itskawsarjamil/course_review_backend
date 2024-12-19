@@ -1,6 +1,6 @@
-# Course Review Project Part2
+# Course Review Project
 
-This project serves as the assignment 4 of the level 2 course.
+This project serves as assignment of a backend course.
 
 ## Prerequisites
 
@@ -89,6 +89,13 @@ This project serves as the assignment 4 of the level 2 course.
 
 # ****Software requirement Specification****
 
+### **Technology Stack:**
+
+- **Programming Language:** TypeScript
+- **Web Framework:** Express.js
+- **Object Data Modeling (ODM) and Validation Library:** Mongoose for MongoDB
+
+## **Models:**
 
 ## 1. User Model:
 
@@ -747,3 +754,32 @@ Example: ?level=Intermediate
         - **Undefined JWT:** No JWT is provided in the request headers.
         - **Not Authorized User:** The user does not possess the required permissions for the requested action or resource.
         - **Access Denied:** The user is attempting to access a resource without the necessary authorization.
+     
+## Validation with Joi/Zod
+
+- Use Joi/Zod to validate incoming data for course, category and review creation and updating operations.
+- Ensure that the data adheres to the structure defined in the models.
+- Handle validation errors gracefully and provide meaningful error messages in the API responses.
+
+## Instruction
+
+1. **Coding Quality:**
+    - Write clean, modular, and well-organized code.
+    - Follow consistent naming conventions for variables, functions, and routes.
+    - Use meaningful names that reflect the purpose of variables and functions.
+    - Ensure that the code is readable.
+2. **Comments:**
+    - Try to provide inline comments to explain complex sections of code or logic.
+3. **API Endpoint Adherence:**
+    - Strictly follow the provided API endpoint structure and naming conventions.
+    - Ensure that the request and response formats match the specifications outlined in the assignment.
+4. **Validation and Error Handling:**
+    - Implement validation using Joi/zod for both courses, review, and order categories.
+    - Handle validation errors gracefully and provide meaningful error messages in the API responses.
+    - Implement error handling for scenarios like course not found etc, and validation errors.
+5. **Coding Tools and Libraries:**
+    - Avoid the use of AI tools or libraries for generating code. Write the code manually to demonstrate a clear understanding of the concepts.
+    - Utilize only the specified libraries like Express, Mongoose, Joi and avoid unnecessary dependencies.
+6. **Coding Style:**
+    - Consider using linting tools (e.g., ESLint) to enforce coding style and identify potential issues.
+    - Ensure there are at least 10 commits in your GitHub repository.
